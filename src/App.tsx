@@ -6,7 +6,13 @@ const HTTPS_SHEMA = "https://"
 
 function App() {
 
-    const dataSource = [
+    type dataItem = {
+        key: string
+        site: string
+        aggressive_words: number
+    }
+
+    const dataSource:dataItem[] = [
         {
             key: '1',
             site: 'github.com',
@@ -48,7 +54,7 @@ function App() {
             key: 'key',
             dataIndex: 'key',
             align: 'center' as const,
-            render: (text, record) => (
+            render: (_:string, record:dataItem) => (
                 <a href={HTTPS_SHEMA + record.site} target="_blank">
                     <Button>
                         Открыть
