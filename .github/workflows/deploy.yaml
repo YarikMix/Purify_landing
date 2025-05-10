@@ -1,9 +1,9 @@
-name: Check
+name: Deploy landing
 
 on: push
 
 jobs:
-  test-react-deploy:
+  deploy:
     name: deploy landing
     runs-on: ubuntu-latest
     steps:
@@ -13,7 +13,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd /home/${{ secrets.SERVER_USER }}/frontend && git pull
+          script: cd /home/${{ secrets.SERVER_USER }}/frontend/landing && git pull
 
       - name: Build frontend
         uses: appleboy/ssh-action@master
@@ -22,9 +22,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/${{ secrets.SERVER_USER }}/frontend
+            cd /home/${{ secrets.SERVER_USER }}/frontend/landing
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            npm ci
             npm run build
 
       - name: Copy dist to nginx folder
@@ -33,7 +34,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: sudo cp -rf /home/${{ secrets.SERVER_USER }}/frontend/dist/* /opt/public/
+          script: sudo cp -rf /home/${{ secrets.SERVER_USER }}/frontend/landing/dist/* /opt/public/
 
       - name: Restart nginx
         uses: appleboy/ssh-action@master
