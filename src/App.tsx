@@ -2,22 +2,24 @@ import {Reset} from "styled-reset";
 import {Typography, Table, Flex, Button} from "antd";
 import styles from "./App.module.css"
 
+const HTTPS_SHEMA = "https://"
+
 function App() {
 
     const dataSource = [
         {
             key: '1',
-            name: 'Пикабу',
+            site: 'github.com',
             aggressive_words: 32,
         },
         {
             key: '2',
-            name: 'Women.ru',
+            site: 'www.woman.ru',
             aggressive_words: 42,
         },
         {
             key: '3',
-            name: 'Двач',
+            site: '2ch.hk',
             aggressive_words: 4232,
         },
     ];
@@ -30,9 +32,9 @@ function App() {
             align: 'center' as const,
         },
         {
-            title: 'Название сайта',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Сайт',
+            dataIndex: 'site',
+            key: 'site',
             align: 'center' as const,
         },
         {
@@ -47,8 +49,8 @@ function App() {
             dataIndex: 'key',
             align: 'center' as const,
             render: (text, record) => (
-                <a href="https://github.com/" target="_blank">
-                    <Button onClick={()=> console.log(record)}>
+                <a href={HTTPS_SHEMA + record.site} target="_blank">
+                    <Button>
                         Открыть
                     </Button>
                 </a>
