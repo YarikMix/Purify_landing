@@ -21,7 +21,11 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd /home/${{ secrets.SERVER_USER }}/frontend && ls -la
+          script: |
+            cd /home/${{ secrets.SERVER_USER }}/frontend
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm --help
 
       - name: Build frontend
         uses: appleboy/ssh-action@master
@@ -29,7 +33,11 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: cd /home/${{ secrets.SERVER_USER }}/frontend && npm run build
+          script: |
+            cd /home/${{ secrets.SERVER_USER }}/frontend
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm run build
 
       - name: Copy dist to /opt/public/
         uses: appleboy/ssh-action@master
