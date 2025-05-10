@@ -69,7 +69,7 @@ function App() {
             <Reset />
             <Flex className={styles.wrapper}>
                 <Flex vertical gap="middle" className={styles.container}>
-                    <Typography.Title level={1}>Рейтинг безопасных сайтов123 🏆</Typography.Title>
+                    <Typography.Title level={1}>Рейтинг безопасных сайтов 🏆</Typography.Title>
                     <Table dataSource={dataSource} columns={columns} pagination={{ pageSize: 5 }} />
                 </Flex>
             </Flex>
