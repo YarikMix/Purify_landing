@@ -44,7 +44,7 @@ function App() {
             key: 'key',
             dataIndex: 'key',
             align: 'center' as const,
-            render: (_:string, record:siteItem) => (
+            render: (_:string, record) => (
                 <a href={HTTPS_SHEMA + record.site} target="_blank">
                     <Button>
                         Открыть
