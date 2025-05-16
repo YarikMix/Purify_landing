@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {siteItem} from "./types.ts";
 import {ColumnsType} from "antd/es/table";
 import axios from 'axios';
+import "./styles.css"
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             dataIndex: 'key',
             key: 'key',
             align: 'center' as const,
+            render: (item, record, idx) => idx + 1
         },
         {
             title: 'Сайт',
@@ -41,12 +43,12 @@ function App() {
         },
         {
             title: 'Ссылка на сайт',
-            key: 'key',
-            dataIndex: 'key',
+            key: 'link',
+            dataIndex: 'link',
             align: 'center' as const,
-            render: (_:string, record) => (
+            render: (item, record) => (
                 <a href={HTTPS_SHEMA + record.site} target="_blank">
-                    <Button>
+                    <Button className={styles.btn}>
                         Открыть
                     </Button>
                 </a>
@@ -58,13 +60,21 @@ function App() {
         pageSize: 5
     } as TablePaginationConfig
 
+    const tableEmptyText = {
+        emptyText: 'Не хватает данных'
+    }
+
+    if (!rating) {
+        return null
+    }
+
     return (
         <>
             <Reset />
             <Flex className={styles.wrapper}>
-                <Flex vertical gap="middle" className={styles.container}>
+                <Flex vertical className={styles.container}>
                     <Typography.Title level={1}>Рейтинг безопасных сайтов 🏆</Typography.Title>
-                    <Table dataSource={rating} columns={columns} pagination={paginationConfig} />
+                    <Table dataSource={rating} columns={columns} pagination={paginationConfig} locale={tableEmptyText} rowKey="site" />
                 </Flex>
             </Flex>
         </>
