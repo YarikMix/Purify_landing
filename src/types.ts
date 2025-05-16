@@ -1,5 +1,5 @@
 export type siteItem = {
-	key: string
+	place: string
 	site: string
 	aggressive_words: number
 }

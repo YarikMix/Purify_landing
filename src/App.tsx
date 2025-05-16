@@ -13,7 +13,7 @@ function App() {
     const [rating, setRating] = useState<siteItem[]>()
 
     const fetchRating = async () => {
-        const response = await axios.get(API_URL + "/get_all_rating")
+        const response = await axios.get<siteItem[]>(API_URL + "/get_all_rating")
         setRating(response.data)
     }
 
@@ -21,38 +21,36 @@ function App() {
         fetchRating()
     }, [])
 
-    const columns:ColumnsType = [
+    const columns:ColumnsType<siteItem> = [
         {
             title: 'Место',
-            dataIndex: 'key',
             key: 'key',
             align: 'center' as const,
-            render: (item, record, idx) => idx + 1
+            render: (_:string, __:object, idx) => idx + 1
         },
         {
             title: 'Сайт',
-            dataIndex: 'site',
             key: 'site',
-            align: 'center' as const,
+            dataIndex: "site",
+            align: 'center' as const
         },
         {
             title: 'Кол-во найденных агрессивных слов',
-            dataIndex: 'aggressive_words',
             key: 'aggressive_words',
-            align: 'center' as const,
+            dataIndex: "aggressive_words",
+            align: 'center' as const
         },
         {
             title: 'Ссылка на сайт',
             key: 'link',
-            dataIndex: 'link',
             align: 'center' as const,
-            render: (item, record) => (
-                <a href={HTTPS_SHEMA + record.site} target="_blank">
+            render: (_:string, record:siteItem) => (
+                <a href={HTTPS_SHEMA + record?.site} target="_blank">
                     <Button className={styles.btn}>
                         Открыть
                     </Button>
                 </a>
-            ),
+            )
         },
     ];
 
