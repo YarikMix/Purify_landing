@@ -1,36 +1,26 @@
 import {Reset} from "styled-reset";
-import {Typography, Table, Flex, Button} from "antd";
+import {Typography, Table, Flex, Button, TablePaginationConfig} from "antd";
 import styles from "./App.module.css"
-
-const HTTPS_SHEMA = "https://"
+import {API_URL, HTTPS_SHEMA} from "./const.ts";
+import {useEffect, useState} from "react";
+import {siteItem} from "./types.ts";
+import {ColumnsType} from "antd/es/table";
+import axios from 'axios';
 
 function App() {
 
-    type dataItem = {
-        key: string
-        site: string
-        aggressive_words: number
+    const [rating, setRating] = useState<siteItem[]>()
+
+    const fetchRating = async () => {
+        const response = await axios.get(API_URL + "/get_all_rating")
+        setRating(response.data)
     }
 
-    const dataSource:dataItem[] = [
-        {
-            key: '1',
-            site: 'github.com',
-            aggressive_words: 32,
-        },
-        {
-            key: '2',
-            site: 'www.woman.ru',
-            aggressive_words: 42,
-        },
-        {
-            key: '3',
-            site: '2ch.hk',
-            aggressive_words: 4232,
-        },
-    ];
+    useEffect(() => {
+        fetchRating()
+    }, [])
 
-    const columns = [
+    const columns:ColumnsType = [
         {
             title: 'Место',
             dataIndex: 'key',
@@ -54,7 +44,7 @@ function App() {
             key: 'key',
             dataIndex: 'key',
             align: 'center' as const,
-            render: (_:string, record:dataItem) => (
+            render: (_:string, record:siteItem) => (
                 <a href={HTTPS_SHEMA + record.site} target="_blank">
                     <Button>
                         Открыть
@@ -64,13 +54,17 @@ function App() {
         },
     ];
 
+    const paginationConfig: TablePaginationConfig = {
+        pageSize: 5
+    } as TablePaginationConfig
+
     return (
         <>
             <Reset />
             <Flex className={styles.wrapper}>
                 <Flex vertical gap="middle" className={styles.container}>
                     <Typography.Title level={1}>Рейтинг безопасных сайтов 🏆</Typography.Title>
-                    <Table dataSource={dataSource} columns={columns} pagination={{ pageSize: 5 }} />
+                    <Table dataSource={rating} columns={columns} pagination={paginationConfig} />
                 </Flex>
             </Flex>
         </>
