@@ -69,9 +69,16 @@ function App() {
     return (
         <>
             <Reset />
-            <Flex className={styles.wrapper}>
-                <Flex vertical className={styles.container}>
-                    <Typography.Title level={1}>Рейтинг безопасных сайтов 🏆</Typography.Title>
+            <Flex className={styles.wrapper} vertical>
+                <Flex className={styles.titleContainer}>
+                    <Typography.Title id={"title"} style={{color: "white"}}>Purify</Typography.Title>
+                    <div className={styles.comingSoonContainer}>
+                        <Typography.Text className={styles.comingSoonLabel}>Скоро в Chrome<br/> Web Store</Typography.Text>
+                        <img src="/GoogleChromeWebStoreIcon.svg" className={styles.chromeStoreLogo} alt="ChromeWebStoreLogo" />
+                    </div>
+                </Flex>
+                <Flex vertical className={styles.ratingContainer}>
+                    <Typography.Title id={"ratingPanelTitle"}>Рейтинг безопасных сайтов 🏆</Typography.Title>
                     <Table dataSource={rating} columns={columns} pagination={paginationConfig} locale={tableEmptyText} rowKey="site" />
                 </Flex>
             </Flex>
