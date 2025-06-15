@@ -1,0 +1,36 @@
+.layout {
+	height: 100vh;
+	background: transparent;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	width: 100%;
+	gap: 50px;
+}
+
+.infoContainer {
+	width: 600px
+}
+
+.comingSoonWrapper {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translate(calc(100% + 10px), 100%);
+}
+
+.description {
+	font-size: 30px;
+	color: #fff;
+}
+
+.bannerContainer {
+	position: relative;
+}

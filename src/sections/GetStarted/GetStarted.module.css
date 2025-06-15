@@ -1,0 +1,13 @@
+.layout {
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	padding: 30px 0;
+}
+
+.image {
+	width: 100%;
+	cursor: pointer;
+}

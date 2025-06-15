@@ -1,0 +1,30 @@
+
+.comingSoonContainer {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	animation: float 3s linear infinite;
+	animation-direction: alternate;
+}
+
+@keyframes float {
+	from { transform: rotate(5deg); }
+	to { transform: rotate(-5deg); }
+}
+
+.chromeStoreLogo {
+	width: 30px;
+	height: 30px;
+}
+
+.comingSoonLabel {
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+	.comingSoonContainer {
+		position: static;
+	}
+}
