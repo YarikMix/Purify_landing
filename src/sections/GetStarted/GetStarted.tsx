@@ -1,5 +1,4 @@
 import { Button, Layout, Typography } from "antd";
-import { AnchorSection } from "react-anchor-navigation";
 import {
     RiNumber1,
     RiNumber2,
@@ -15,6 +14,7 @@ import {
     VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { AnchorSection } from "../../lib/reactAnchorNavigation";
 import styles from "./GetStarted.module.css";
 
 const GetStarted = () => {

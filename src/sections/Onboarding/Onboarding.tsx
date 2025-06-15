@@ -4,8 +4,8 @@ import ReactPlayer from "react-player";
 import styles from "./Onboarding.module.css";
 
 import { motion } from "motion/react";
-import { AnchorSection } from "react-anchor-navigation";
 import ComingSoon from "../../components/ComingSoon/ComingSoon.tsx";
+import { AnchorSection } from "../../lib/reactAnchorNavigation";
 
 const OnboardingPage = () => {
     return (

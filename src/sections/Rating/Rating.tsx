@@ -1,7 +1,7 @@
 import { Layout, Typography } from "antd";
 import { motion } from "motion/react";
-import { AnchorSection } from "react-anchor-navigation";
 import RatingTable from "../../components/RatingTable/RatingTable.tsx";
+import { AnchorSection } from "../../lib/reactAnchorNavigation";
 import styles from "./Rating.module.css";
 
 const RatingPage = () => {
