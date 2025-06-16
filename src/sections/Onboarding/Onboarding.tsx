@@ -49,13 +49,13 @@ const OnboardingPage = () => {
                         className={styles.bannerContainer}
                     >
                         <ReactPlayer
-                            url="public/mock.mp4"
+                            url="public/plugin.mp4"
                             width={400}
                             height={"100%"}
                             muted={true}
                             playsinline={true}
                             playing={true}
-                            loop={true}
+                            loop={false}
                         />
                         <div className={styles.comingSoonWrapper}>
                             <ComingSoon />
