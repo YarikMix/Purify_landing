@@ -25,7 +25,7 @@ const RatingTable = () => {
             title: "Место",
             key: "key",
             align: "center" as const,
-            render: (_: string, __: object, idx) => idx + 1,
+            render: (_: string, record: siteItem) => record.place,
         },
         {
             title: "Сайт",
