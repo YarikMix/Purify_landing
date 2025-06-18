@@ -55,7 +55,7 @@ const OnboardingPage = () => {
                             muted={true}
                             playsinline={true}
                             playing={true}
-                            loop={false}
+                            loop={true}
                         />
                         <div className={styles.comingSoonWrapper}>
                             <ComingSoon />
