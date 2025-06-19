@@ -4,7 +4,7 @@ import RatingTable from "../../components/RatingTable/RatingTable.tsx";
 import { AnchorSection } from "../../lib/reactAnchorNavigation";
 import styles from "./Rating.module.css";
 
-const RatingPage = () => {
+const Rating = () => {
     return (
         <AnchorSection id="rating">
             <Layout className={styles.layout}>
@@ -21,9 +21,10 @@ const RatingPage = () => {
                     className={styles.container}
                 >
                     <Typography.Title
-                        id={"title"}
-                        style={{ fontSize: 42, marginBottom: 50 }}
+                        id="title"
+                        className={styles.title}
                     >
+
                         Рейтинг сайтов 🏆
                     </Typography.Title>
                     <RatingTable />
@@ -33,4 +34,4 @@ const RatingPage = () => {
     );
 };
 
-export default RatingPage;
+export default Rating;

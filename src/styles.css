@@ -3,7 +3,7 @@
 }
 
 #title {
-	font-size: 64px;
+	font-size: 64px !important;
 	color: #fff;
 	text-shadow: 0 0 15px #00d4ff, 0 0 25px #00d4ff, 0 0 60px #00d4ff, 0 0 100px #00d4ff, 0 0 200px #00d4ff;
 }
@@ -12,6 +12,12 @@
 	font-size: 32px;
 	text-align: center;
 	margin-bottom: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+	#title {
+		font-size: 54px !important;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -25,17 +31,17 @@
 	}
 
 	.ant-table-cell:not([scope="col"]) {
-		font-size: 18px;
+		font-size: 18px ;
 	}
 
 	#title {
-		font-size: 58px;
+		font-size: 42px !important;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	#ratingPanelTitle {
-		font-size: 26px;
+		font-size: 26px ;
 	}
 
 	.ant-table-cell[scope="col"] {
@@ -43,7 +49,7 @@
 	}
 
 	#title {
-		font-size: 54px;
+		font-size: 36px !important;
 	}
 }
 
@@ -57,7 +63,7 @@
 	}
 
 	#title {
-		font-size: 48px;
+		font-size: 32px !important;
 	}
 }
 
@@ -67,6 +73,10 @@
 	}
 
 	.ant-table-cell[scope="col"] {
-		font-size: 20px;
+		font-size: 16px !important;
+	}
+
+	#title {
+		font-size: 30px !important;
 	}
 }

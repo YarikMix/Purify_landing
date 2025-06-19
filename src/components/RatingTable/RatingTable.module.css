@@ -6,7 +6,6 @@
 	border-radius: 12px;
 	box-shadow: 8px 8px 16px 0 rgba(34, 60, 80, 0.2);
 	overflow-x: auto;
-	width: 80%;
 	max-width: 1000px;
 }
 
@@ -26,9 +25,36 @@
 	}
 }
 
-@media screen and (max-width: 576px) {
+@media (max-width: 700px) {
 	.ratingContainer {
-		padding: 12px;
-		width: calc(100% - 40px)
+		padding: 0 2%;
+	}
+
+	.btn {
+		font-size: 16px;
+		padding: 5px;
+	}
+
+	:global(.ant-table-thead > tr > th) {
+		padding: 5px!important;;
+		font-size: 13px !important;;
+	}
+
+	:global(.ant-table-tbody > tr > td) {
+		padding: 5px !important;;
+		font-size: 13px !important;;
+	}
+
+	:global(.ant-pagination) {
+		font-size: 12px !important;;
 	}
 }
+
+@media (max-width: 500px) {
+	.ratingContainer {
+		box-shadow: none;
+		padding: 0;
+	}
+}
+
+

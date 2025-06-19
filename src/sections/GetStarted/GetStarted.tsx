@@ -21,11 +21,8 @@ const GetStarted = () => {
     return (
         <AnchorSection id="getStarted">
             <Layout className={styles.layout}>
-                <Typography.Title
-                    id={"title"}
-                    style={{ color: "white", fontSize: 42 }}
-                >
-                    Инструкция по установке
+                <Typography.Title id={"title"} className={styles.title}>
+                    Инструкция по установке 📖
                 </Typography.Title>
                 <VerticalTimeline>
                     <VerticalTimelineElement
@@ -44,7 +41,8 @@ const GetStarted = () => {
                         icon={<RiNumber1 />}
                     >
                         <Typography.Title
-                            style={{ color: "white", fontSize: 24 }}
+                            style={{ color: "white" }}
+                            className={styles.subtitle}
                         >
                             Скачайте архив с расширением
                         </Typography.Title>
@@ -63,7 +61,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber2 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             Распакуйте архив в отдельную папку
                         </Typography.Title>
                     </VerticalTimelineElement>
@@ -75,7 +73,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber3 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             В хроме откройте меню «Настройки» и перейдите в
                             раздел "Расширения"
                         </Typography.Title>
@@ -88,7 +86,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber4 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             Активируйте флаг «Режим разработчика»
                         </Typography.Title>
                         <PhotoView src="public/screen.png">
@@ -106,7 +104,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber5 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             Нажмите «Загрузить распакованное расширение»
                         </Typography.Title>
                     </VerticalTimelineElement>
@@ -118,7 +116,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber6 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             Укажите путь до папки с расширением
                         </Typography.Title>
                     </VerticalTimelineElement>
@@ -130,7 +128,7 @@ const GetStarted = () => {
                         }}
                         icon={<RiNumber7 />}
                     >
-                        <Typography.Title style={{ fontSize: 24 }}>
+                        <Typography.Title className={styles.subtitle}>
                             Вы восхитительны!
                         </Typography.Title>
                     </VerticalTimelineElement>
